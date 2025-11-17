@@ -10,7 +10,15 @@ const data: TodoType[] = [
   { id: 6, text: "Clean rm", completed: false },
 ];
 
-export const TodoContext = createContext<TodoContextType | null>(null);
+// uses non-null default value to fix type error in TodoList component
+export const TodoContext = createContext<TodoContextType>({
+  todo: [],
+  addTodo: () => {},
+  deleteTodo: () => {},
+  toggleTodo: () => {},
+  editTodo: () => {},
+  clearCompleted: () => {},
+});
 
 export function TodoProvider({ children }: TodoProvidersProps) {
   const [todo, setTodo] = useState<TodoType[]>(data);

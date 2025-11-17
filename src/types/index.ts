@@ -1,4 +1,4 @@
-export type Todo = {
+export type TodoType = {
     id: number;
     text: string;
     completed: boolean;
@@ -9,7 +9,7 @@ export interface TodoProvidersProps {
 }
 
 export interface TodoContextType {
-    todo: Todo[];
+    todo: TodoType[];
     addTodo: (text: string) => void;
     toggleTodo: (id: number) => void;
     deleteTodo: (id: number) => void;
@@ -17,3 +17,13 @@ export interface TodoContextType {
     clearCompleted: () => void;
 }
 
+export interface FilterProviderProps {
+    children: React.ReactNode;
+}
+
+export type FilterType = "all" | "active" | "completed";
+
+export interface FilterContextValue {
+    filter: FilterType;
+    setFilter: React.Dispatch<React.SetStateAction<FilterType>>;
+}
