@@ -16,8 +16,8 @@ export default function TodoList() {
   });
 
   return (
-    <div>
-      <h2>Todos List</h2>
+    <div className="flex flex-col text-2xl font-bold">
+      <h2>Todo App (Context API)</h2>
       <div>Filter: {filter}</div>
       {/* uses map to render filtered list */}
       {filteredTodos.map((todo) => (

@@ -6,13 +6,13 @@ Build a Todo application with the following features, primarily using the Contex
 
 ### State: An array of todo items. Each todo item should have at least:
 
-- [] id: A unique identifier (string or number).
-- [] text: The content of the todo (string).
-- [] completed: A boolean indicating if the todo is completed.
+- [x] id: A unique identifier (string or number).
+- [x] text: The content of the todo (string).
+- [x] completed: A boolean indicating if the todo is completed.
 
 ### Actions (exposed via context):
 
-- [] addTodo(text: string): Adds a new todo item to the list.
+- [] addTodo(text: string): Adds a new todo item to the list.x
 - [] toggleTodo(id: string | number): Toggles the completed status of a todo item.
 - [] deleteTodo(id: string | number): Removes a todo item from the list.
 - [] editTodo(id: string | number, newText: string): Edits the text of an existing todo item.
@@ -20,15 +20,15 @@ Build a Todo application with the following features, primarily using the Contex
 
 ### Components:
 
-- [] TodoInput: An input field to add new todos.
-- [] TodoList: Displays the list of todo items.
-- [] TodoItem: Represents a single todo item, allowing interaction (toggle, delete, edit).
+- [x] TodoInput: An input field to add new todos.
+- [x] TodoList: Displays the list of todo items.
+- [x] TodoItem: Represents a single todo item, allowing interaction (toggle, delete, edit).
 
 ## 2. Visibility Filters (FilterContext)
 
 ### State:
 
-- [] The current visibility filter. Possible values: ‘all’, ‘active’, ‘completed’.
+- [x] The current visibility filter. Possible values: ‘all’, ‘active’, ‘completed’.
 
 ### Actions (exposed via context):
 
