@@ -1,7 +1,7 @@
 import { createContext, useState, useEffect } from "react";
-import type { Todo, TodoContextType, TodoProvidersProps } from "../types";
+import type { TodoType, TodoContextType, TodoProvidersProps } from "../types";
 
-const data: Todo[] = [
+const data: TodoType[] = [
   { id: 1, text: "Buy groceries", completed: false },
   { id: 2, text: "Finish homework", completed: true },
   { id: 3, text: "Walk the dog", completed: false },
@@ -10,10 +10,10 @@ const data: Todo[] = [
   { id: 6, text: "Clean rm", completed: false },
 ];
 
-export const TodosContext = createContext<TodoContextType | null>(null);
+export const TodoContext = createContext<TodoContextType | null>(null);
 
 export function TodoProvider({ children }: TodoProvidersProps) {
-  const [todo, setTodo] = useState<Todo[]>(data);
+  const [todo, setTodo] = useState<TodoType[]>(data);
 
   // store todo items when array changes
   useEffect(() => {}, []);
@@ -26,7 +26,7 @@ export function TodoProvider({ children }: TodoProvidersProps) {
   const clearCompleted = () => {};
 
   return (
-    <TodosContext.Provider
+    <TodoContext.Provider
       value={{
         todo,
         addTodo,
@@ -37,6 +37,6 @@ export function TodoProvider({ children }: TodoProvidersProps) {
       }}
     >
       {children}
-    </TodosContext.Provider>
+    </TodoContext.Provider>
   );
 }
