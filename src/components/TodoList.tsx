@@ -12,6 +12,9 @@ export default function TodoList() {
   const { todo } = todoCtx;
   const { filter } = filterCtx;
 
+  console.log("todos from context in TodoList:", todo);
+  console.log("length:", todo.length);
+
   // filters todo list based on current filter value
   const filteredTodos = todo.filter((todo) => {
     //if filter = active, returns only incomplete tasks
@@ -30,8 +33,7 @@ export default function TodoList() {
   }
 
   return (
-    <div className="flex flex-col text-2xl font-bold">
-      <h2>Todo App (Context API)</h2>
+    <div className="flex flex-col text-lg">
       <div>Filter: {filter}</div>
       {/* uses map to render filtered list */}
       <ul className="mt-6 space-y-2">

@@ -10,9 +10,10 @@ const data: TodoType[] = [
   { id: 6, text: "Clean rm", completed: false },
 ];
 
+console.log(data);
 // uses non-null default value to fix type error in TodoList component
 export const TodoContext = createContext<TodoContextType>({
-  todo: [],
+  todo: data,
   addTodo: () => {},
   deleteTodo: () => {},
   toggleTodo: () => {},
@@ -26,8 +27,19 @@ export function TodoProvider({ children }: TodoProvidersProps) {
   // store todo items when array changes
   useEffect(() => {}, []);
 
-  // todo actions
-  const addTodo = () => {};
+  // adds item to list
+  const addTodo = (text: string) => {
+    // updates the todo state in todocontext
+    setTodo((prev) => [
+      ...prev,
+      {
+        id: Date.now(), // simple ID
+        text,
+        completed: false,
+      },
+    ]);
+  };
+
   const deleteTodo = () => {};
   const toggleTodo = () => {};
   const editTodo = () => {};

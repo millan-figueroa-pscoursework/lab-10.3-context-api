@@ -32,7 +32,7 @@ Build a Todo application with the following features, primarily using the Contex
 
 ### Actions (exposed via context):
 
-- [] setFilter(filter: string): Sets the current filter.
+- [x] setFilter(filter: string): Sets the current filter.
 
 ### Functionality:
 
