@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { TodoContext } from "../context/TodoContext";
+import { TodoContext } from "../context/TodoContext.tsx";
 import { FilterContext } from "../context/FilterContext";
 import TodoItem from "./TodoItem";
 
@@ -11,9 +11,6 @@ export default function TodoList() {
 
   const { todo } = todoCtx;
   const { filter } = filterCtx;
-
-  console.log("todos from context in TodoList:", todo);
-  console.log("length:", todo.length);
 
   // filters todo list based on current filter value
   const filteredTodos = todo.filter((todo) => {

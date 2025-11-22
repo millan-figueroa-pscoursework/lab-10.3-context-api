@@ -1,10 +1,13 @@
 import { useContext, useState } from "react";
 import type { FormEvent } from "react";
-import { TodoContext } from "../context/TodoContext";
+import { TodoContext } from "../context/TodoContext.tsx";
 
 export default function TodoInput() {
-  const todoCtx = useContext(TodoContext);
   const [text, setText] = useState("");
+  const todoCtx = useContext(TodoContext);
+  if (!todoCtx) {
+    throw new Error("TodoInput must be used within a TodoProvider");
+  }
 
   // in case context is typed as TodoContextType | null
   if (!todoCtx) return null;

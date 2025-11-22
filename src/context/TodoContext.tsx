@@ -11,10 +11,14 @@ const data: TodoType[] = [
 ];
 
 console.log(data);
+
+// ** CONTEXT ADDTODO **
 // uses non-null default value to fix type error in TodoList component
 export const TodoContext = createContext<TodoContextType>({
   todo: data,
-  addTodo: () => {},
+  addTodo: (text) => {
+    console.log("DEFAULT addTodo", text);
+  },
   deleteTodo: () => {},
   toggleTodo: () => {},
   editTodo: () => {},
@@ -25,19 +29,13 @@ export function TodoProvider({ children }: TodoProvidersProps) {
   const [todo, setTodo] = useState<TodoType[]>(data);
 
   // store todo items when array changes
-  useEffect(() => {}, []);
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todo));
+  }, [todo]);
 
-  // adds item to list
+  // ** PROVIDER ADDTODO
   const addTodo = (text: string) => {
-    // updates the todo state in todocontext
-    setTodo((prev) => [
-      ...prev,
-      {
-        id: Date.now(), // simple ID
-        text,
-        completed: false,
-      },
-    ]);
+    setTodo((prev) => [...prev, { id: Date.now(), text, completed: false }]);
   };
 
   const deleteTodo = () => {};
